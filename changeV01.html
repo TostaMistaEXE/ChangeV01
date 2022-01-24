@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ChangeV01</title>
+</head>
+<body>
+    <p>Insert in the text box a value</p>
+    <p>if you want to use decimals use the . ex(1.55)</p>
+    <input type="text" id="money_Id" value="">
+    <button onclick="myFunction()">Change</button>
+    <p id="change_Id"></p>
+    
+    <script>
+        const coins = [2,1,0.50,0.20,0.10,0.05,0.02,0.01];
+        let x,money,text = "";
+
+        function myFunction() {  
+            text="";
+            money = document.getElementById("money_Id").value;
+            for (let i = 0; i < coins.length ; i++) {
+                x=0
+                while(money >= coins[i])
+                {
+                money -= coins[i];    
+                x++;
+                money = money.toFixed(2)
+                }
+                text += x + ":" + coins[i] + "€<br>";
+            }
+            document.getElementById("change_Id").innerHTML = text;              
+        }
+    </script>
+
+</body>
+</html>
+
